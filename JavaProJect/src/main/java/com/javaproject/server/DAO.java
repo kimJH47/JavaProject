@@ -5,22 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 public class DAO {
 
-    private Connection conn; // Connection : �����ͺ��̽��� �����ϰ� ���ִ� �ϳ��� ��ü
+    private Connection conn; // Connection :
 
-    public DAO() { // �����ڸ� ���� UserDAO�� �ν��Ͻ��� �����Ǿ��� �� �ڵ����� DB Ŀ�ؼ��� �̷����������
+    public DAO() { //
         try {
-            String dbURL = "jdbc:mysql://127.0.0.1:9000/myschemas";
+            String dbURL = "jdbc:mysql://121.181.97.97:9000/myschemas";
             String dbID = "root";
             String dbPassword = "1145";
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Class.forName : mysql driver�� ã�� �� �ֵ��� �� *Driver : mysql�� ������
-            // �� �ֵ��� �Ű�ü ������ ���ִ� �ϳ��� ���̺귯��
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Class.forName
 
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword); // conn : getConnection(db URL, dbID,
-            // dbPassword)�� �̿��Ͽ� DB�� �����ϰ� ������ �Ϸᰡ �Ǹ�
-            // conn ��ü�ȿ� ���ӵ� ������ ����
-            System.out.println("DB����");
+            // dbPassword
+            System.out.println("DB connection");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,16 +34,16 @@ public class DAO {
             ResultSet rs = pstmt.executeQuery(); // ��� ����� �޾ƿ��� ResultSet Ÿ���� rs ������ �������� ������ ����� �־���
             if (rs.next()) {
                 if (rs.getString(1).contentEquals(user_pw)) {
-                    System.out.println("��ġ");
-                    return true; // �α��� ����
+                    System.out.println("login ");
+                    return true; //
                 } else {
-                    return false; // ��й�ȣ ����ġ
+                    return false; //
                 }
             }
-            return false; // ���̵� ����
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
-            return false; // DB ����
+            return false;
         }
     }
 
