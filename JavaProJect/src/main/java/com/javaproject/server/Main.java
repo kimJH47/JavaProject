@@ -12,7 +12,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-
 public class Main {
 
     public static ExecutorService threadPool; //쓰레드풀 생성

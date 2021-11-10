@@ -1,5 +1,4 @@
 package com.javaproject.client.main;
-
 import java.awt.*;
 import java.net.Socket;
 import com.javaproject.client.gui.LoginForm;
