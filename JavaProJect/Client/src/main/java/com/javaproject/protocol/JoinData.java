@@ -1,7 +1,7 @@
 package com.javaproject.protocol;
 
 public class JoinData implements Protocol {
-
+    // ���� �������� Ȯ����������
     private static final long serialVersionUID = 1L;
 
     public static final short LOGIN_FAILED = -10; // login access

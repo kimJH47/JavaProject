@@ -111,7 +111,7 @@ public class ClientHandler {
 
     public void analysisJoinData(JoinData data) {
         try {
-            if (data.getProtocol() == JoinData.JOIN_REQUST) {
+            if (data.getProtocol() == JoinData.JOIN_REQUEST) {
                 // join request
                 Main.roomManager.addClient(this);
                 sendData(new JoinData(true, JoinData.JOIN_ACCESS));
@@ -127,7 +127,7 @@ public class ClientHandler {
         String ID = data.getID();
         String passWord = data.getPassWord();
         System.out.println("login protocol....");
-        if (data.getProtocol() == LoginData.LOGIN_REQUST) {
+        if (data.getProtocol() == LoginData.LOGIN_REQUEST) {
             // login request
             try {
                 if (Main.DAO.signIn(ID, passWord)) {
