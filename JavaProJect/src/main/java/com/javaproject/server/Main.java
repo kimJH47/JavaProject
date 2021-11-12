@@ -16,7 +16,7 @@ public class Main {
 
     public static ExecutorService threadPool; //쓰레드풀 생성
     public static RoomManager roomManager = new RoomManager();
-    public static DAO DAO =new DAO();
+    //public static DAO DAO =new DAO();
     ServerSocket serverSocket;
 
     public void startServer(String IP, int port) {
@@ -48,7 +48,6 @@ public class Main {
                                 + Thread.currentThread().getName());
                         //클라이언트가 로비에서 대기열입장 요청시 소켓정보를 담고있는 클라이언트객체 생성 후 roomManager 객체에 전달
                         new ClientHandler(socket);
-
 
                     } catch (Exception e) {
                         if (!serverSocket.isClosed()) {
@@ -88,7 +87,7 @@ public class Main {
     //main 시작점
     public static void main(String[] args) {
         Main me = new Main();
-        me.startServer("127.0.0.1", 9001);
-
+        me.startServer("172.26.30.118", 9001);
+        //211.105.145.237
     }
 }

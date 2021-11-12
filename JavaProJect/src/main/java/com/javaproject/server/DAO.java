@@ -12,8 +12,8 @@ public class DAO {
 
     public DAO() { //
         try {
-            String dbURL = "jdbc:mysql://121.181.97.119:9000/myschemas";
-            String dbID = "root";
+            String dbURL = "jdbc:mysql://222.104.41.249:9000/myschemas";
+            String dbID = "sw1145";
             String dbPassword = "1145";
             Class.forName("com.mysql.cj.jdbc.Driver"); // Class.forName
 

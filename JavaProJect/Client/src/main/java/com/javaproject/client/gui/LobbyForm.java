@@ -1,4 +1,6 @@
 package com.javaproject.client.gui;
 
-public class LobbyForm {
+import org.lwjgl.system.jawt.JAWT;
+
+public class LobbyForm extends java.awt.Frame {
 }

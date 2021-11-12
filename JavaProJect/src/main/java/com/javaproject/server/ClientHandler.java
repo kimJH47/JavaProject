@@ -130,15 +130,15 @@ public class ClientHandler {
         if (data.getProtocol() == LoginData.LOGIN_REQUEST) {
             // login request
             try {
-                if (Main.DAO.signIn(ID, passWord)) {
-                    sendData(new JoinData(true, JoinData.LOGIN_ACCESS));
-                    System.out.println("성공");
-
-                } else {
-                    sendData(new JoinData(true, JoinData.LOGIN_FAILED));
-                    System.out.println("실패");
-
-                }
+//                if (Main.DAO.signIn(ID, passWord)) {
+//                    sendData(new JoinData(true, JoinData.LOGIN_ACCESS));
+//                    System.out.println("성공");
+//
+//                } else {
+//                    sendData(new JoinData(true, JoinData.LOGIN_FAILED));
+//                    System.out.println("실패");
+//
+//                }
 
             } catch (Exception e) {
                 try {
