@@ -18,8 +18,8 @@ public class Client {
     private Protocol data ;
 
     //
-    public Client(Socket socket) {
-        this.socket = socket;
+    public Client() {
+
 
         startClient();
     }

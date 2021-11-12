@@ -16,7 +16,7 @@ public class Main {
 
     public static ExecutorService threadPool; //쓰레드풀 생성
     public static RoomManager roomManager = new RoomManager();
-    //public static DAO DAO =new DAO();
+   // public static DAO DAO =new DAO();
     ServerSocket serverSocket;
 
     public void startServer(String IP, int port) {

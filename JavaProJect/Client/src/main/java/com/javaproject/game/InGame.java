@@ -4,7 +4,6 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.opengl.GL;
-
 import com.javaproject.assets.Assets;
 import com.javaproject.gui.Gui;
 import com.javaproject.io.Timer;
@@ -74,7 +73,7 @@ public class InGame {
 
         String[] worlds = {"test_level","moo_level"};
         World world =  new World(worlds[0], camera);
-        //Wolrd 생성 후 실행중에 World 바꾸지 않을 시 에러
+        //World 생성 후 실행중에 World 바꾸지 않을 시 에러
         world.calculateView(window);
         //calculateView 적용해야 타일 보임
         Gui gui = null;
@@ -275,10 +274,6 @@ public class InGame {
 
         glfwTerminate();
         */
-    }
-
-    public static void main(String[] args) {
-        new InGame();
     }
 
 }
