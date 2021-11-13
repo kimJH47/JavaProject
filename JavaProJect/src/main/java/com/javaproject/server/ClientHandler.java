@@ -158,7 +158,7 @@ public class ClientHandler {
             @Override
             public void run() {
                 try {
-                    out.writeObject(data);
+                    out.writeObject(protocol);
                     out.flush();
                     System.out.println("send client:" + socket.getRemoteSocketAddress() + ":" + protocol);
                 } catch (Exception e) {
