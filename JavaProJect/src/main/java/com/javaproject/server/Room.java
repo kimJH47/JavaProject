@@ -13,7 +13,7 @@ public class Room {
     private int roomNum = 0;
 
     public Room(int roomNum,Queue<ClientHandler> clientsList) {
-        JoinData joinData = new JoinData(true,JoinData.JOIN_ROOM);
+        JoinData joinData = new JoinData(JoinData.JOIN_ROOM);
         joinData.setMessage(String.format("%d", roomNum));
 
         for (Iterator<ClientHandler> iterator = clientsList.iterator(); iterator.hasNext();) {

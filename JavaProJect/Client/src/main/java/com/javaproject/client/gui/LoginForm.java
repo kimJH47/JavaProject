@@ -220,15 +220,15 @@ public class LoginForm extends java.awt.Frame {
     }
 
     private void signInPanelMouseClicked(java.awt.event.MouseEvent evt) {
-        // �α��� ó�� �̺�Ʈ
+        //
         new InGame();
         String pw = "";
- /*       char[] secret_pw = pw_field.getPassword(); // secret_pw
+       char[] secret_pw = pw_field.getPassword(); // secret_pw
         for (char cha : secret_pw) {
-            Character.toString(cha); //� �����ϱ�, pw �� ���� ��������� ����, ���� ������ �̾ �����ϴ� ���׿���
+            Character.toString(cha); //
             pw += (pw.equals("")) ? "" + cha + "" : "" + cha + "";
         }
-        Main.client.sendData(new LoginData(id_filed.getText(), pw, LoginData.LOGIN_REQUEST));*/
+        Main.client.sendData(new LoginData(id_filed.getText(), pw, LoginData.LOGIN_REQUEST));
     }
 
 

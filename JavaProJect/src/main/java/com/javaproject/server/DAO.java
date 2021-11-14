@@ -48,7 +48,7 @@ public class DAO {
     }
 
     public boolean signUp(String user_ID, String user_pw, String name) {
-        //�ߺ����� DB�������� Ȯ��
+        //
         try {
             if (overCheck(user_ID)) {
                 String SQL = "INSERT INTO user_info VALUES(?,?)";

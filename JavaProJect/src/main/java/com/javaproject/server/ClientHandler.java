@@ -77,6 +77,7 @@ public class ClientHandler {
                             analysisLoginData((LoginData) data);
 
                         } else if (data instanceof SignUpData) {
+                            analysisSignUpData((SignUpData) data);
 
                         } else if (data instanceof JoinData) {
                             analysisJoinData((JoinData) data);
@@ -95,7 +96,22 @@ public class ClientHandler {
         Main.threadPool.submit(thread);
 
     }
+    public void analysisSignUpData(SignUpData data){
+        if(data.getProtocol() ==SignUpData.SIGNUP_REQUEST){
+            try{
+                if(Main.DAO.signUp(data.getID(),data.getPW(),data.getName())){
+                    sendData(new SignUpData(SignUpData.SIGNUP_SUCCESS));
+                }else{
+                    sendData(new SignUpData(SignUpData.SIGNUP_FAILED));
+                }
+            }catch (Exception e){
+                sendData(new SignUpData(SignUpData.SIGNUP_FAILED));
+                e.printStackTrace();
+            }
 
+        }
+
+    }
     public void analysisChatData(ChatData data) {
         try {
             if (data.getProtocol() == ChatData.SEND_TEXT) {
@@ -103,7 +119,7 @@ public class ClientHandler {
                 Main.roomManager.searchRoom(data.getRoomNum(),data);
             }
         } catch (Exception e) {
-            sendData(new JoinData(true, JoinData.JOIN_FAILED));
+            sendData(new JoinData(JoinData.JOIN_FAILED));
             e.printStackTrace();
         }
 
@@ -114,10 +130,10 @@ public class ClientHandler {
             if (data.getProtocol() == JoinData.JOIN_REQUEST) {
                 // join request
                 Main.roomManager.addClient(this);
-                sendData(new JoinData(true, JoinData.JOIN_ACCESS));
+                sendData(new JoinData(JoinData.JOIN_ACCESS));
             }
         } catch (Exception e) {
-            sendData(new JoinData(true, JoinData.JOIN_FAILED));
+            sendData(new JoinData(JoinData.JOIN_FAILED));
             e.printStackTrace();
         }
     }
@@ -130,19 +146,18 @@ public class ClientHandler {
         if (data.getProtocol() == LoginData.LOGIN_REQUEST) {
             // login request
             try {
-//                if (Main.DAO.signIn(ID, passWord)) {
-//                    sendData(new JoinData(true, JoinData.LOGIN_ACCESS));
-//                    System.out.println("성공");
-//
-//                } else {
-//                    sendData(new JoinData(true, JoinData.LOGIN_FAILED));
-//                    System.out.println("실패");
-//
-//                }
+                if (Main.DAO.signIn(ID, passWord)) {
+                    sendData(new JoinData(JoinData.LOGIN_ACCESS));
+                    System.out.println("성공");
 
+                } else {
+                    sendData(new JoinData(JoinData.LOGIN_FAILED));
+                    System.out.println("실패");
+
+                }
             } catch (Exception e) {
                 try {
-                    sendData(new JoinData(true, JoinData.LOGIN_FAILED));
+                    sendData(new JoinData(JoinData.LOGIN_FAILED));
                     e.printStackTrace();
                 } catch (Exception e1) {
                     e1.printStackTrace();
@@ -165,7 +180,7 @@ public class ClientHandler {
                     try {
                         System.out.println("[message send error]" + socket.getRemoteSocketAddress() + ":"
                                 + Thread.currentThread().getName());
-                        // room.clientList.remove(Client.this);
+                        //room.clientList.remove(Client.this);
                     } catch (Exception e2) {
                         e2.printStackTrace();
 

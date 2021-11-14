@@ -21,7 +21,9 @@ public class JoinData implements Protocol {
         this.flag = flag;
         this.protocol = protocol;
     }
-
+    public JoinData(short protocol) {
+        this.protocol = protocol;
+    }
     @Override
     public short getProtocol() {
         return protocol;

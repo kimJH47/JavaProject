@@ -6,6 +6,11 @@ package com.javaproject.client.gui;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+import com.javaproject.client.main.Main;
+import com.javaproject.protocol.LoginData;
+import com.javaproject.protocol.SignUpData;
+
 /**
  *
  * @author kmr2644
@@ -187,9 +192,9 @@ public class SignUpForm extends java.awt.Frame {
     }
 
     private void signUpButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:ȸ������ �̺�Ʈ
-        //LoginForm.userDAO.signUp(IDTextFiled.getText(), IDTextFiled1.getText(), IDTextFiled2.getText());
+        Main.client.sendData(new SignUpData(IDTextFiled.getText(), IDTextFiled1.getText(), IDTextFiled2.getText(),SignUpData.SIGNUP_REQUEST));
     }
+
 
     /**
      * @param args the command line arguments

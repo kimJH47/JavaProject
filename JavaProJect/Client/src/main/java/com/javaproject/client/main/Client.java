@@ -34,7 +34,7 @@ public class Client {
             in = new ObjectInputStream(socket.getInputStream());
 
         } catch (Exception e) {
-            System.out.println("�������� ����");
+            System.out.println("socket error");
             e.printStackTrace();
         }
 
@@ -81,9 +81,9 @@ public class Client {
                     System.out.println("join protocol");
                     analysisJoinData((JoinData) data);
                 } else if (data instanceof LoginData) {
-                    System.out.println(((LoginData) data).getID());
-                    System.out.println(((LoginData) data).getPassWord());
                     System.out.println("test");
+                }else if(data instanceof SignUpData){
+                    analysisSignData((SignUpData) data);
                 }
             } catch (Exception e) {
                 stopClient();
@@ -122,12 +122,22 @@ public class Client {
 
     }
 
+    public void analysisSignData(SignUpData data) {
+
+        if(data.getProtocol()==SignUpData.SIGNUP_FAILED) {
+            //sign success
+            System.out.println("sign up");
+        }else if(data.getProtocol()==SignUpData.SIGNUP_FAILED){
+            System.out.println("sign up failed");
+        }
+
+    }
 
     public void analysisJoinData(JoinData data) {
 
         try {
             if (data.getProtocol() == JoinData.LOGIN_ACCESS) {
-                System.out.println("login acess");
+                System.out.println("login access");
                 new LobbyForm().setVisible(true);
             } else if (data.getProtocol() == JoinData.LOGIN_FAILED) {
                 System.out.println("login failed");
@@ -135,8 +145,6 @@ public class Client {
                 roomNum = Integer.parseInt(data.getMessage());
                 System.out.printf("%d Room join!\n", roomNum);
 
-            } else {
-                System.out.println("Unkown JoinProtocol!");
             }
 
         } catch (Exception e) {

@@ -17,8 +17,7 @@ public class JoinData implements Protocol {
     private String name;
     private short protocol;
 
-    public JoinData(boolean flag, short protocol) {
-        this.flag = flag;
+    public JoinData(short protocol) {
         this.protocol = protocol;
     }
 
