@@ -16,6 +16,7 @@ public class Client {
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Protocol data ;
+    private int playerNum;
 
     //
     public Client() {
@@ -72,7 +73,7 @@ public class Client {
         System.out.println("receive start");
         while (true) {
             try {
-                data = (Protocol) in.readObject();//???? �� �������� write �� ��ü�� �ƴ϶� ���� ������ ���� ��ü�� �ٽ� �޾ƿ���??
+                data = (Protocol) in.readObject();//
                 System.out.println("receive: " + data);
                 if(data instanceof ChatData) {
                     analysisChatData((ChatData) data);
@@ -143,6 +144,7 @@ public class Client {
                 System.out.println("login failed");
             } else if (data.getProtocol() == JoinData.JOIN_ROOM) {
                 roomNum = Integer.parseInt(data.getMessage());
+                playerNum = Integer.parseInt(data.getName());
                 System.out.printf("%d Room join!\n", roomNum);
 
             }

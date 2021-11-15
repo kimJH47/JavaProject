@@ -15,8 +15,9 @@ public class Room {
     public Room(int roomNum,Queue<ClientHandler> clientsList) {
         JoinData joinData = new JoinData(JoinData.JOIN_ROOM);
         joinData.setMessage(String.format("%d", roomNum));
-
+        int user_num = 0;
         for (Iterator<ClientHandler> iterator = clientsList.iterator(); iterator.hasNext();) {
+            joinData.setName(Integer.toString(user_num++));
             ClientHandler client =iterator.next();
             this.clientList.add(client);
             client.enterRoom(this);
