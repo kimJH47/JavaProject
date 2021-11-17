@@ -1,7 +1,7 @@
 package com.javaproject.protocol;
 
 public class JoinData implements Protocol {
-
+    // ���� �������� Ȯ����������
     private static final long serialVersionUID = 1L;
 
     public static final short LOGIN_FAILED = -10; // login access
@@ -12,7 +12,6 @@ public class JoinData implements Protocol {
     public static final short JOIN_ROOM = 40;
 
 
-    private boolean flag = false;
     private String message;
     private String name;
     private short protocol;
@@ -20,7 +19,6 @@ public class JoinData implements Protocol {
     public JoinData(short protocol) {
         this.protocol = protocol;
     }
-
     @Override
     public short getProtocol() {
         return protocol;

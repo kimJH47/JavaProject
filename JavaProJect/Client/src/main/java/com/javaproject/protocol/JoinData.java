@@ -12,15 +12,10 @@ public class JoinData implements Protocol {
     public static final short JOIN_ROOM = 40;
 
 
-    private boolean flag = false;
     private String message;
     private String name;
     private short protocol;
 
-    public JoinData(boolean flag, short protocol) {
-        this.flag = flag;
-        this.protocol = protocol;
-    }
     public JoinData(short protocol) {
         this.protocol = protocol;
     }
